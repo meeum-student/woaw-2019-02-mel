@@ -41,6 +41,19 @@
   }
 
 
+@media screen and (min-width: 800px) {
+
+
+    :root {
+
+        --font-size-site-title: 54px;
+        --font-size-page-title: 80px;
+        --font-size-section-title: 48px;
+
+        --padder: 2%;
+    }
+}
+
 
 /* --------------------- GLOBAL DEFAULTS */
 * {
@@ -94,6 +107,7 @@ h4 {
 
 a {
     color: var(--link-color);
+    transition: var(--transition-time);
 }
 
 a:hover {
@@ -142,9 +156,90 @@ header {
 
 header .layout-wide {
     overflow: hidden;
+    margin-bottom: 0;
 }
 
 /* --------------------- NAVIGATION */
+
+.navigation {
+    background-color: var(--alternative-bg-color);
+}
+
+.nav-prompt {
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+    padding-top: var(--padder);
+    padding-bottom: var(--padder);
+    background-color: var(--alternative-bg-color);
+    color: var(--alternative-text-color);
+
+    border: none;
+    border-top: 1px solid black;
+}
+
+.nav-inner ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-inner li {
+    text-align: center;
+}
+
+.nav-inner a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--alternative-text-color);
+    padding-top: var(--padder);
+    padding-bottom: var(--padder);
+
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+@media screen and (min-width: 800px) {
+
+    .nav-prompt {
+        display: none;
+    }
+
+    .navigation {
+        padding-top: var(--spacer);
+        padding-bottom: var(--spacer);
+    }
+
+    .nav-inner ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav-inner {
+        margin-bottom: 0;
+    }
+
+    .nav-inner a {
+        border-bottom: 2px solid transparent;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .nav-inner {
+        overflow: hidden;
+        transition: var(--transition-time);
+    }
+
+    .nav-inner[aria-expanded="false"] {
+        max-height: 0;
+    }
+
+    .nav-inner[aria-expanded="true"] {
+        max-height: 100vh;
+    }
+}
 
 /* --------------------- FOOTER */
 footer {
